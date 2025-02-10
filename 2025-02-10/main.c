@@ -21,6 +21,7 @@ bool manipulateArray(int arr[], int *count)
     int size = 0;
     int *output;
     
+    system("cls");
     displayFnNames();
     printf("Enter the number of the function you want to call: ");
     scanf("%d", &choice);
@@ -80,6 +81,7 @@ bool manipulateArray(int arr[], int *count)
             break;
         case 13:
             printf("Number of primes in arrays is %d\n", getNumOfPrimes(arr, *count));
+            break;
         case 14:
             output = getReversed(arr, *count, &size);
             display(output, size);
@@ -89,12 +91,15 @@ bool manipulateArray(int arr[], int *count)
             output = getAboveAverageNums(arr, *count, &size);
             display(output, size);
             break;
+        case 16:
+            item = getIntFromUser("Enter element to find: ");
+            printf("%d is %s array\n", item, isFound(arr, *count, item) ? "in": "not in");
+            break;
         default:
             printf("Invalid Input");
             break;
     }
 
     system("pause");
-    system("cls");
     return true;
 }

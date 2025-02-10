@@ -1,6 +1,6 @@
 #include "myHeader.h"
 
-#define FN_NAMES_LEN 16
+#define FN_NAMES_LEN 17
 
 String functionNames[FN_NAMES_LEN] = {
     "exit",
@@ -18,7 +18,8 @@ String functionNames[FN_NAMES_LEN] = {
     "getFactors",
     "getNumOfPrimes",
     "getReversed",
-    "getAboveAverageNums"
+    "getAboveAverageNums",
+    "isFound"
 };
 
 String fnName(int index)
@@ -28,7 +29,8 @@ String fnName(int index)
 
 int* createOccupiedIntArr(int *returnSize)
 {
-    int temp[] = {1,5,6,8,11,14,23,40};
+    // int temp[] = {1,5,6,8,11,14,23,40};
+    int temp[] = {2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 100};
     const int N = sizeof(temp) / sizeof(temp[0]);
     int *arr = malloc(sizeof(int) * MAX_LEN);
     *returnSize = 0;
@@ -176,6 +178,34 @@ bool deleteAllItemOccurrence(int arr[], int *count, int item)
     return true;
 }
 
+bool isFound(int arr[], int count, int item)
+{
+    // this is assuming that arr is sorted in asc order
+    int left = 0;
+    int mid;
+    int right = count - 1;
+
+    while (left <= right) 
+    {
+        mid = left + (right - left)/2;
+        
+        if (arr[mid] == item)
+        {
+            return true;
+        }
+        else if (arr[mid] > item)
+        {
+            right = mid - 1;
+        }
+        else
+        {
+            left = mid + 1;
+        }
+    }
+
+    return false;
+}
+
 
 int getAverageOfEvenNumsInArr(int arr[], int count)
 {
@@ -184,7 +214,7 @@ int getAverageOfEvenNumsInArr(int arr[], int count)
     
     for (int i = 0; i < count; ++i)
     {
-        if (arr[i] == 0)
+        if (arr[i] % 2 == 0)
         {
             sum += arr[i];
             ++evenCount;
@@ -242,7 +272,7 @@ bool isPrime(int num)
         return false;
     }
 
-    for (int i = 1; i <= num; ++i)
+    for (int i = 2; i <= num; ++i)
     {
         if ((num % i) == 0)
         {
@@ -250,7 +280,7 @@ bool isPrime(int num)
         }
     }
 
-    return (count == 2);
+    return (count <= 2);
 }
 
 int getNumOfPrimes(int arr[], int count)
