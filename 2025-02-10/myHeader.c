@@ -184,7 +184,7 @@ int getAverageOfEvenNumsInArr(int arr[], int count)
     
     for (int i = 0; i < count; ++i)
     {
-        if (arr[i] == 0)
+        if ((arr[i] % 2) == 0)
         {
             sum += arr[i];
             ++evenCount;
