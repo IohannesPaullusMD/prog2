@@ -59,9 +59,8 @@ void display(int arr[], int count)
     printf("{");
     for (int i = 0; i < count; ++i) 
     {
-        printf("%d ", arr[i]);
+        printf("%d%s", arr[i], (i+1 < count ? ", ": "}\n"));
     }
-    printf("}\n");
 }
 
 bool insertFront(int arr[], int *count, int item)
@@ -181,6 +180,7 @@ bool deleteAllItemOccurrence(int arr[], int *count, int item)
 bool isFound(int arr[], int count, int item)
 {
     // this is assuming that arr is sorted in asc order
+    /*
     int left = 0;
     int mid;
     int right = count - 1;
@@ -204,6 +204,17 @@ bool isFound(int arr[], int count, int item)
     }
 
     return false;
+    */
+
+   for (int i = 0; i < count; ++i)
+   {
+        if (arr[i] == item) 
+        {
+            return true;
+        } 
+   }
+
+   return false;
 }
 
 
