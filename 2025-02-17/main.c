@@ -19,6 +19,7 @@ Point createPoint(int x, int y);
 void displayPoint(Point *point);
 int getPosition(Point *point);
 double getDistance(Point *p1, Point *p2);
+char* getPositionStr(int pos);
 
 int main()
 {
@@ -28,8 +29,8 @@ int main()
     displayPoint(&p1);
     displayPoint(&p2);
 
-    printf("p1 pos: %d\n", getPosition(&p1));
-    printf("p2 pos: %d\n", getPosition(&p2));
+    printf("p1 pos: %s\n", getPositionStr(getPosition(&p1)));
+    printf("p2 pos: %s\n", getPositionStr(getPosition(&p2)));
 
     printf("distance: %lf\n", getDistance(&p1, &p2));
 }
@@ -71,4 +72,25 @@ double getDistance(Point *p1, Point *p2)
     int dx =  abs(p2->x - p1->x);
     int dy = abs(p2->y - p1->y);
     return sqrt((dx*dx) + (dy*dy));
+}
+
+char* getPositionStr(int pos)
+{
+    switch (pos)
+    {
+        case ORIGIN:
+            return "Origin";
+        case Q1:
+            return "Quadrant 1";
+        case Q2:
+            return "Quadrant 2";
+        case Q3:
+            return "Quadrant 3";
+        case Q4:
+            return "Quadrant 4";
+        case X_AXIS:
+            return "X-axis";
+        case Y_AXIS: 
+            return "Y-axis";
+    }
 }
