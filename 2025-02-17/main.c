@@ -24,7 +24,7 @@ char* getPositionStr(int pos);
 int main()
 {
     Point p1 = createPoint(-4, -3);
-    Point p2 = createPoint(0, 0);
+    Point p2 = createPoint(1, 1);
 
     displayPoint(&p1);
     displayPoint(&p2);
@@ -46,25 +46,12 @@ void displayPoint(Point *point)
     printf("y: %d\n", point->y);
 }
 
-int getPosition(Point *point)
+int getPosition(Point *point) 
 {
-    if (point->y == 0) 
-    {
-        return (point->x == 0) ? ORIGIN : X_AXIS; 
-    }
-    else if (point->x == 0) 
-    {
-        return Y_AXIS;
-    }
-    else if (point->x > 0)
-    {
-        return (point->y > 0) ? Q1 : Q4;
-    }
-    else
-    {
-        return (point->y > 0) ? Q2 : Q3;
-    }
-
+    return (point->y == 0) ? ((point->x == 0) ? ORIGIN : X_AXIS) :
+           (point->x == 0) ? Y_AXIS :
+           (point->x > 0) ? ((point->y > 0) ? Q1 : Q4) :
+           (point->y > 0) ? Q2 : Q3;
 }
 
 double getDistance(Point *p1, Point *p2)
