@@ -15,24 +15,26 @@ typedef struct
     int y;
 } Point;
 
+typedef char *String;
+
 Point createPoint(int x, int y);
-void displayPoint(Point *point);
-int getPosition(Point *point);
-double getDistance(Point *p1, Point *p2);
-char* getPositionStr(int pos);
+void displayPoint(Point point);
+int getPosition(Point point);
+double getDistance(Point p1, Point p2);
+String getPositionStr(int pos);
 
 int main()
 {
     Point p1 = createPoint(-4, -3);
     Point p2 = createPoint(1, 1);
 
-    displayPoint(&p1);
-    displayPoint(&p2);
+    displayPoint(p1);
+    displayPoint(p2);
 
-    printf("p1 pos: %s\n", getPositionStr(getPosition(&p1)));
-    printf("p2 pos: %s\n", getPositionStr(getPosition(&p2)));
+    printf("p1 pos: %s\n", getPositionStr(getPosition(p1)));
+    printf("p2 pos: %s\n", getPositionStr(getPosition(p2)));
 
-    printf("distance: %lf\n", getDistance(&p1, &p2));
+    printf("distance: %lf\n", getDistance(p1, p2));
 }
 
 Point createPoint(int x, int y)
@@ -40,28 +42,26 @@ Point createPoint(int x, int y)
     return (Point) {x, y};
 }
 
-void displayPoint(Point *point)
+void displayPoint(Point point)
 {
-    printf("x: %d\n", point->x);
-    printf("y: %d\n", point->y);
+    printf("x: %d\n", point.x);
+    printf("y: %d\n", point.y);
 }
 
-int getPosition(Point *point) 
+int getPosition(Point point) 
 {
-    return (point->y == 0) ? ((point->x == 0) ? ORIGIN : X_AXIS) :
-           (point->x == 0) ? Y_AXIS :
-           (point->x > 0) ? ((point->y > 0) ? Q1 : Q4) :
-           (point->y > 0) ? Q2 : Q3;
+    return (point.y == 0) ? ((point.x == 0) ? ORIGIN : X_AXIS) :
+           (point.x == 0) ? Y_AXIS :
+           (point.x > 0) ? ((point.y > 0) ? Q1 : Q4) :
+           (point.y > 0) ? Q2 : Q3;
 }
 
-double getDistance(Point *p1, Point *p2)
+double getDistance(Point p1, Point p2)
 {
-    int dx =  abs(p2->x - p1->x);
-    int dy = abs(p2->y - p1->y);
-    return sqrt((dx*dx) + (dy*dy));
+    return sqrt(pow(p2.x - p1.x, 2) + pow(p2.y - p1.y, 2));
 }
 
-char* getPositionStr(int pos)
+String getPositionStr(int pos)
 {
     switch (pos)
     {
