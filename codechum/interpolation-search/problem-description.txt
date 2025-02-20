@@ -1,0 +1,10 @@
+Interpolation Search
+by CodeChum Admin
+
+Write a program that takes a sorted array of integers and an integer key as input, 
+and searches for the key using the interpolation search algorithm. 
+If the key is found, print the position (index) of the key in the array. 
+If the key is not found, print "Key not found". 
+
+Interpolation search uses the value of the key to estimate the position of the key in the array, 
+making it more efficient than binary search for certain types of input data.

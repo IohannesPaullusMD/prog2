@@ -1,0 +1,6 @@
+<case1>
+    Enter the size of the array: 5
+    Enter the elements of the array: 1 2 3 4 5
+    Enter the key to search: 5
+    Key found at position 5
+</case1>

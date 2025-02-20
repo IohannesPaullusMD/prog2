@@ -1,0 +1,77 @@
+<case1>
+    Enter number of souls: 7
+    Enter soul scores: 2 1 3 2 1 3 2
+    Initial soul list: [2|1|3|2|1|3|2], SOUL COUNT: 7
+    Sorted soul list: [2|1|3|2|1|3|2], SOUL COUNT: 7
+</case1>
+
+<case2>
+    Enter number of souls: 14
+    Enter soul scores: 0
+    0
+    0
+    0
+    1
+    1
+    1
+    1
+    1
+    1
+    1
+    1
+    1
+    2
+    Initial soul list: [0|0|0|0|1|1|1|1|1|1|1|1|1|2], SOUL COUNT: 14
+    Sorted soul list: [1|1|1|1|1|1|1|1|1|2], SOUL COUNT: 10
+</case2>
+
+<case3>
+    Enter number of souls: 4
+    Enter soul scores: 0 1 -42 -1
+    Initial soul list: [0|1|-42|-1], SOUL COUNT: 4
+    Sorted soul list: [0|1|-42|-1], SOUL COUNT: 4
+</case3>
+
+<case4>
+    Enter number of souls: 3
+    Enter soul scores: 59
+    54
+    21
+    Initial soul list: [59|54|21], SOUL COUNT: 3
+    Sorted soul list: [54|21], SOUL COUNT: 2
+</case4>
+
+<case5>
+    Enter number of souls: 2
+    Enter soul scores: 45 43
+    Initial soul list: [45|43], SOUL COUNT: 2
+    Sorted soul list: [43], SOUL COUNT: 1
+</case5>
+
+<case7>
+    Enter number of souls: 1
+    Enter soul scores: 4
+    Initial soul list: [4], SOUL COUNT: 1
+    Sorted soul list: [], SOUL COUNT: 0
+</case7>
+
+<case8>
+    Enter number of souls: 7
+    Enter soul scores: 0 48 92 29 60 12 30
+    Initial soul list: [0|48|92|29|60|12|30], SOUL COUNT: 7
+    Sorted soul list: [60|12|30], SOUL COUNT: 3
+</case8>
+
+<case9>
+    Enter number of souls: 11
+    Enter soul scores: 11 11 48 12 38 4 12 33 12 38 11
+    Initial soul list: [11|11|48|12|38|4|12|33|12|38|11], SOUL COUNT: 11
+    Sorted soul list: [38|4|12|33|12|38|11], SOUL COUNT: 7
+</case9>
+
+<case11>
+    Enter number of souls: 6
+    Enter soul scores: 8 1 3 6 5 0
+    Initial soul list: [8|1|3|6|5|0], SOUL COUNT: 6
+    Sorted soul list: [6|5|0], SOUL COUNT: 3
+</case11>

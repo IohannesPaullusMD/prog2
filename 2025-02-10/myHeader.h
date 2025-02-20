@@ -21,6 +21,7 @@ bool deleteFront(int arr[], int *count);
 bool deleteRear(int arr[], int *count);
 bool deleteItem(int arr[], int *count, int item);
 bool deleteAllItemOccurrence(int arr[], int *count, int item);
+bool isFound(int arr[], int count, int item);
 
 int getAverageOfEvenNumsInArr(int arr[], int count);
 int getFirstOccurrencePosition(int arr[], int count, int item);
