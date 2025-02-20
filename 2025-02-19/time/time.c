@@ -1,15 +1,23 @@
 
+#include <stdlib.h>
 #include "time.h"
 #include "../error/error.h"
 
-_Time createTime(uInt hours, uInt minutes)
+Time createTime(uInt hours, uInt minutes)
 {
     if (hours >= 24 || minutes >= 60)
     {
         throwError("invalid arguments");
     }
 
-    return (_Time) {hours, minutes};
+    Time time = malloc(sizeof(_Time));
+
+    if (time != NULL)
+    {
+        time->hours = hours;
+        time->minutes = minutes;
+    }
+    return time;
 }
 
 void displayTime(_Time time)
@@ -52,21 +60,16 @@ long64 getTimeDiffInMinutes(_Time t1, _Time t2)
     mins2 = convertToMinutes(t2);
     diff = mins2 - mins1;
 
-    if (diff < 0)
-    {
-        diff = -diff;
-    }
-
-    return diff;
+    return (diff < 0) ? -diff : diff;
 }
 
-_Time getTimeDiffInHoursAndMinutes(_Time t1, _Time t2)
+Time getTimeDiffInHoursAndMinutes(_Time t1, _Time t2)
 {
     long64 minsDiff = getTimeDiffInMinutes(t1, t2);
-    return (_Time) 
-    {
+    return createTime
+    (
         (minsDiff / MINS_IN_DAY), 
         (minsDiff % MINS_IN_DAY)
-    };
+    );
 }
 

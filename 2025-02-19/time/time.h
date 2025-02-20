@@ -17,11 +17,11 @@ typedef struct
     uInt minutes;
 } _Time, *Time;
 
-_Time createTime(uInt hours, uInt minutes);
+Time createTime(uInt hours, uInt minutes);
 void displayTime(_Time time);
 void displayStandardTime(_Time time);
 long64 getTimeDiffInMinutes(_Time t1, _Time t2);
-_Time getTimeDiffInHoursAndMinutes(_Time t1, _Time t2);
+Time getTimeDiffInHoursAndMinutes(_Time t1, _Time t2);
 long64 convertToMinutes(_Time time);
 
 #endif
