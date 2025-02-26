@@ -4,6 +4,7 @@
 #define isLeapYear(year) ((year % 4 == 0 && year % 100 != 0) || (year % 400 == 0))
 
 typedef unsigned short uShort;
+typedef unsigned int uInt;
 
 /** {day, month, year} */
 typedef struct
@@ -30,5 +31,9 @@ uShort daysInMonth
     uShort month, 
     uShort year
 );
+
+uShort daysInMonth(uShort month, uShort year);
+uInt daysSinceYearStart(_Date date);
+uInt totalDays(_Date date);
 
 #endif

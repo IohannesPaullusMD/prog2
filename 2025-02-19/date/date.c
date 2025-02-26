@@ -3,11 +3,6 @@
 #include "../string/myString.h"
 #include "../error/error.h"
 
-typedef unsigned int uInt;
-
-uShort daysInMonth(uShort month, uShort year);
-uInt daysSinceYearStart(_Date date);
-uInt totalDays(_Date date);
 
 _Date createDate
 (

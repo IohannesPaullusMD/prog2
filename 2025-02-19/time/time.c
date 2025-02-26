@@ -1,15 +1,11 @@
-
+#include <assert.h>
 #include <stdlib.h>
 #include "time.h"
 #include "../error/error.h"
 
 Time createTime(uInt hours, uInt minutes)
 {
-    if (hours >= 24 || minutes >= 60)
-    {
-        throwError("invalid arguments");
-    }
-
+    assert(hours < 24 || minutes < 60);
     Time time = malloc(sizeof(_Time));
 
     if (time != NULL)
@@ -22,13 +18,14 @@ Time createTime(uInt hours, uInt minutes)
 
 void displayTime(_Time time)
 {
-    printf(
-        "%s%u:%s%u\n",
-        (time.hours > 9) ? "" : "0",
-        time.hours,
-        (time.minutes > 9) ? "" : "0",
-        time.minutes
-    );
+    // printf(
+    //     "%s%u:%s%u\n",
+    //     (time.hours > 9) ? "" : "0",
+    //     time.hours,
+    //     (time.minutes > 9) ? "" : "0",
+    //     time.minutes
+    // );
+    printf("%02d:%02d\n",time.hours, time.minutes);
 }
 
 void displayStandardTime(_Time time)
@@ -44,6 +41,10 @@ void displayStandardTime(_Time time)
         ((time.hours == 12) ? "NN" :
             (time.hours > 12) ? "PM" : "AM")
     );
+    printf("%02d:%02d %s\n", 
+        (time.hours > 12) ? (time.hours % 12) : time.hours, 
+        time.minutes,
+        );
 }
 
 long64 convertToMinutes(_Time time)
@@ -68,8 +69,8 @@ Time getTimeDiffInHoursAndMinutes(_Time t1, _Time t2)
     long64 minsDiff = getTimeDiffInMinutes(t1, t2);
     return createTime
     (
-        (minsDiff / MINS_IN_DAY), 
-        (minsDiff % MINS_IN_DAY)
+        (minsDiff / 60), 
+        (minsDiff % 60)
     );
 }
 

@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <assert.h>
-#include "fraction/fraction.h"
+#include "fraction.h"
 
 int main() {
     // Test createFraction
