@@ -2,12 +2,13 @@ import { exec } from 'child_process';
 
 const fileName = 'test.exe'
 const headers = [
-  '../error'
+  '../error',
+  '../string'
 ];
 const sources = [
   '../error/error.c',
-  'fraction.c',
-  'fraction_test.c'
+  'date.c',
+  'date_test.c'
 ];
 
 const headerFlags = headers.map(header => `-I ${header}`).join(' ');
