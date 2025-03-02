@@ -1,7 +1,0 @@
-{
-  "name": "2025-02-26",
-  "scripts": {
-    "build": "gcc -I ./ student_management_system.c sts_test.c -o test.exe",
-    "rnb": "npm run build && test"
-  }
-}

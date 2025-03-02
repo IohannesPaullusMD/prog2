@@ -38,10 +38,10 @@ void displayProduct(_Product product)
 {
     printf("ID: %u\n", product.id);
     printf("Name: %s\n", product.name);
-    printf("Expiry _Date: ");
+    printf("Expiry Date: ");
     displayDate(product.expiryDate);
     printf("Quantity: %u\n", product.qty);
-    printf("Price: %lf\n", product.price);
+    printf("Price: %.2lf\n", product.price);
 }
 
 Product addProductInCollection

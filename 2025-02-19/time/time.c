@@ -18,33 +18,18 @@ Time createTime(uInt hours, uInt minutes)
 
 void displayTime(_Time time)
 {
-    // printf(
-    //     "%s%u:%s%u\n",
-    //     (time.hours > 9) ? "" : "0",
-    //     time.hours,
-    //     (time.minutes > 9) ? "" : "0",
-    //     time.minutes
-    // );
     printf("%02d:%02d\n",time.hours, time.minutes);
 }
 
 void displayStandardTime(_Time time)
 {
-    
     printf
     (
-        "%s%u:%s%u %s\n",
-        (time.hours > 9) ? "" : "0",
-        (time.hours > 12) ? (time.hours % 12) : time.hours,
-        (time.minutes > 9) ? "" : "0",
-        time.minutes,
-        ((time.hours == 12) ? "NN" :
-            (time.hours > 12) ? "PM" : "AM")
-    );
-    printf("%02d:%02d %s\n", 
+        "%02d:%02d %s\n", 
         (time.hours > 12) ? (time.hours % 12) : time.hours, 
         time.minutes,
-        );
+        (time.hours < 12) ? "AM" : "PM"
+    );
 }
 
 long64 convertToMinutes(_Time time)
