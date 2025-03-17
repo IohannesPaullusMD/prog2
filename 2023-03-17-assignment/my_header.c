@@ -65,6 +65,11 @@ bool addElement(ArrayList *list, int item)
 // {1,2,3} -> 2
 bool removeElement(ArrayList *list, int item)
 {
+    if (isEmpty(*list)) // this feels redundant because of the conditionals after this if block LOL
+    {
+        return false;
+    }
+    
     bool isItemFound = false;
     int i;
     for (i = 0; i < list->size && list->arr[i] != item; ++i);
