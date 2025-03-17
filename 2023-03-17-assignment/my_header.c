@@ -1,58 +1,54 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include "my_header.h"
 
 bool isPrime(int num);
 
-void initList(List *list) 
+void initList(ArrayList *list, uInt capacity) 
 {
-    list->count = 0;
-    for (int i = 0; i < LEN; list->arr[i++] = 0);
+    list->arr = calloc(capacity, sizeof(int));
+    list->size = 0;
+    if (list->arr != NULL)
+    {
+        list->capacity = capacity;
+    }
 }
 
-List createList()
+ArrayList createList(uInt capacity)
 {
-    List list;
-    list.count = 0;
+    ArrayList list;
+    initList(&list, capacity);
     return list;
 }
 
-bool insertSorted(List *list, int item)
-{
-    if (list->count == LEN) 
-    {
-        return false;
-    }
 
-    int i = 0;
 
-    for 
-    (
-        i = list->count; 
-        i > 0 && list->arr[i-1] > item; 
-        --i
-    )
-    {
-        list->arr[i] = list->arr[i-1];
-    }
-
-    list->arr[i] = item;
-    ++list->count;
-    return true;
-}
-
-void displayList(const List list)
+void displayList(const ArrayList list)
 {
     printf("{");
-    for (int i = 0; i < list.count; ++i) 
+    for (int i = 0; i < list.size; ++i) 
     {
         printf
         (
             "%d%s",
             list.arr[i],
-            (i+1) < list.count ? ", " : ""
+            (i+1) < list.size ? ", " : ""
         );
     }
     printf("}\n");
+}
+
+/**
+ * insert front, if full, 
+ * realloc array by doubling the capacity
+ */
+bool addElement(ArrayList *list, int item)
+{
+    if (list->size == list->capacity) 
+        int *temp =  
+    {
+
+    }
 }
 
 // TODO: remove primes in list then return the removed items
