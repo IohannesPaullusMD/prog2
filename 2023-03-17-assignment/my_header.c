@@ -45,10 +45,21 @@ void displayList(const ArrayList list)
 bool addElement(ArrayList *list, int item)
 {
     if (list->size == list->capacity) 
-        int *temp =  
     {
+        int *temp = realloc
+        (
+            list->arr, 
+            (list->capacity << 1) * sizeof(int)
+        );
 
+        if (temp == NULL) 
+        {
+            return false;
+        }
+
+        list->capacity = list->capacity << 1;
     }
+    
 }
 
 // TODO: remove primes in list then return the removed items
