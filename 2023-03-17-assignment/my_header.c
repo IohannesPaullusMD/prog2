@@ -81,6 +81,7 @@ bool removeElement(ArrayList *list, int item)
         {
             list->arr[i-1] = list->arr[i];
         }
+        --list->size;
     }
     
     return isItemFound;
