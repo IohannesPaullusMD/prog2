@@ -57,6 +57,7 @@ bool executeCommand(int command, ArrayList *list)
     switch (command)
     {
         case EXIT:
+            printf("Exiting...\n");
             return false;
         case DISPLAY_LIST:
             displayList(*list);

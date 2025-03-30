@@ -55,7 +55,7 @@ bool addElement(ArrayList *list, int item)
 
     for (int i = list->size; i > 0; --i)
     {
-	list->arr[i] = list->[i-1];
+	    list->arr[i] = list->arr[i-1];
     }
 
     list->arr[0] = item;
@@ -68,27 +68,22 @@ bool addElement(ArrayList *list, int item)
 // {1,2} -> 1
 // {1,2,3} -> 2
 bool removeElement(ArrayList *list, int item)
-{
-    if (isEmpty(*list)) // this feels redundant because of the conditionals after this if block LOL
-    {
-        return false;
-    }
-    
-    bool isItemFound = false;
+{   
     int i;
     for (i = 0; i < list->size && list->arr[i] != item; ++i);
 
-    if (i < list->size && list->arr[i] == item)
+    if (i < list->size && list->arr[i] != item)
     {
-        isItemFound = true;
-        for (++i; i < list->size; ++i)
-        {
-            list->arr[i-1] = list->arr[i];
-        }
-        --list->size;
+        return false;
     }
+
+    for (++i; i < list->size; ++i)
+    {
+        list->arr[i-1] = list->arr[i];
+    }
+    --list->size;
     
-    return isItemFound;
+    return true;
 }
 
 bool isEmpty(const ArrayList list)
