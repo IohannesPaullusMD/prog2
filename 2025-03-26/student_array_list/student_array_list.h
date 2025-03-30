@@ -7,20 +7,20 @@
 
 typedef struct 
 {
-    _Student *arr;
+    Student *arr;
     int size;
     int capacity;
 }
-_StudentArrayList, *StudentArrayList;
+StudentArrayList;
 
-StudentArrayList newStudentArrayList(int initCapacity);
+StudentArrayList createStudentArrayList(int initCapacity);
 
 /**
  * insert sorted based on last name
  */
 bool insertSortedStudentArrayList
 (
-    StudentArrayList list,
+    StudentArrayList *list,
     Student Student
 );
 

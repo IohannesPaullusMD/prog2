@@ -3,74 +3,76 @@
 
 #include "student_linked_list.h"
 
-Node newNode(Student student)
+StudentNode* createNode(Student student)
 {
-    Node instance = calloc(1, sizeof(_Node));
+    StudentNode* instance = calloc(1, sizeof(StudentNode));
     if (instance == NULL) { return NULL; }
 
     instance->val = student;
+    instance->next = NULL;
 
     return instance;
 }
 
-StudentLinkedList newStudentArrayList(int initCapacity)
+StudentLinkedList createStudentLinkedList()
 {
-    StudentLinkedList instance = calloc(1, sizeof(_StudentLinkedList));
-    return instance;
+    return NULL; // Initialize empty linked list (head is NULL)
 }
 
-bool insertSortedStudentLinkedList(StudentLinkedList list, Student student)
+bool insertSortedStudentLinkedList(StudentLinkedList* list, Student student)
 {
     if (list == NULL) { return false; }
-    if (list->head == NULL) 
+    
+    StudentNode** head = (StudentNode**)list;
+    
+    if (*head == NULL) 
     {
-        list->head = newNode(student);
-        return true;
+        *head = createNode(student);
+        return *head != NULL;
     }
 
-    Node prev = NULL;
-    Node curr = list->head;
+    StudentNode* prev = NULL;
+    StudentNode* curr = *head;
 
-    while (curr != NULL && compareDates(curr->val->birthDate, student->birthDate) < 0)
+    while (curr != NULL && compareDates(curr->val.birthDate, student.birthDate) <= 0)
     {
         prev = curr;
         curr = curr->next;
     }
 
-    Node _newNode = newNode(student);
-    if (_newNode == NULL) { return false; }
+    StudentNode* newNode = createNode(student);
+    if (newNode == NULL) { return false; }
 
     if (prev == NULL)
     {
-        _newNode->next = list->head;
-        list->head = _newNode;
+        newNode->next = *head;
+        *head = newNode;
     }
     else
     {
-        _newNode->next = curr;
-        prev->next = _newNode;
+        newNode->next = curr;
+        prev->next = newNode;
     }
 
     return true;
 }
 
-
-void displayStudentArrayList(StudentLinkedList list)
+void displayStudentLinkedList(StudentLinkedList list)
 {
-    Node curr = list->head;
-    printf("ID  |Name%26s |Birth Day   |Program & Year\n", "");
+    StudentNode* curr = list;
+    printf("ID, Name, Birth Day, Program & Year\n");
     
     while (curr != NULL)
     {
-        printf("%03d |", curr->val->id);
-        displayName(curr->val->name);
-        printf(" |");
-        displayDate(curr->val->birthDate);
+        printf("%03d, ", curr->val.id);
+        displayName(curr->val.name);
+        printf(", ");
+        displayDate(curr->val.birthDate);
         printf
         (
-            " |%s %d\n",
-            curr->val->program,
-            curr->val->level
+            ", %s %d\n",
+            curr->val.program,
+            curr->val.level
         );
         curr = curr->next;
     }

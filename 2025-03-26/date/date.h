@@ -7,16 +7,20 @@ typedef struct
     int month;
     int year;
 }
-_Date, *Date;
+Date;
 
-Date newDate(int date, int month, int year);
+Date createDate(int date, int month, int year);
 
 /**
  * dd Mmm yyyy
  */
 void displayDate(Date date);
 
-
+/**
+* returns 1 if date1 > date2
+* returns -1 if date1 < date2
+* returns 0 if date1 == date2
+*/
 int compareDates(Date date1, Date date2);
 
 #endif

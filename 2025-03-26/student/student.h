@@ -3,7 +3,7 @@
 
 #include "../name/name.h"
 #include "../date/date.h"
-#include "../string/string.h"
+#include "../string/my_string.h"
 
 typedef struct 
 {
@@ -13,9 +13,9 @@ typedef struct
     String program;
     int level;
 }
-_Student, *Student;
+Student;
 
-Student newStudent
+Student createStudent
 (
     int id,
     Name name,

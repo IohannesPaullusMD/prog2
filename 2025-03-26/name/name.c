@@ -4,14 +4,13 @@
 
 #include "name.h"
 
-Name newName(String fName, String mName, String lName)
+Name createName(String fName, String mName, String lName)
 {
-    Name instance = calloc(1, sizeof(_Name));
-    if (instance == NULL) { return NULL; }
+    Name instance;
 
-    strcpy(instance->fName, fName);
-    strcpy(instance->mName, mName);
-    strcpy(instance->lName, lName);
+    strcpy(instance.fName, fName);
+    strcpy(instance.mName, mName);
+    strcpy(instance.lName, lName);
 
     return instance;
 }
@@ -20,9 +19,9 @@ void displayName(Name name)
 {
     printf
     (
-        "%s, %s, %c",
-        name->lName,
-        name->fName,
-        name->mName[0]
+        "%s, %s %c.",
+        name.lName,
+        name.fName,
+        name.mName[0]
     );
 }

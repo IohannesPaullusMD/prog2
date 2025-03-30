@@ -1,7 +1,7 @@
 #ifndef NAME_H
 #define NAME_H
 
-#include "../string/string.h"
+#include "../string/my_string.h"
 
 typedef struct 
 {
@@ -9,9 +9,9 @@ typedef struct
     String mName;
     String lName;
 } 
-_Name, *Name;
+Name, *NamePtr;
 
-Name newName(String fName, String mName, String lName);
+Name createName(String fName, String mName, String lName);
 
 /**
  * LastName, FirstName Mi

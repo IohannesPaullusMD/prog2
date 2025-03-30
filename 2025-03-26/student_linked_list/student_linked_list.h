@@ -5,36 +5,27 @@
 
 #include "../student/student.h"
 
-typedef struct
+typedef struct Node
 {
     Student val;
-    Node next;
+    struct Node *next;
 }
-_Node, *Node;
+StudentNode, *StudentLinkedList;
 
-typedef struct 
-{
-    Node head;
-    Node tail;
-}
-_StudentLinkedList, *StudentLinkedList;
-
-Node newNode(Student student);
-
-StudentLinkedList newStudentArrayList(int initCapacity);
+StudentLinkedList createStudentLinkedList();
 
 /**
  * insert sorted based on birth date
  */
 bool insertSortedStudentLinkedList
 (
-    StudentLinkedList list,
+    StudentLinkedList *list,
     Student student
 );
 
 /**
  * ID | Name | Birth Day | Program & Year
  */
-void displayStudentArrayList(StudentLinkedList list);
+void displayStudentLinkedList(StudentLinkedList list);
 
 #endif
