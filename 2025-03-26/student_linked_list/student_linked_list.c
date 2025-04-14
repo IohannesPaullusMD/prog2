@@ -22,7 +22,7 @@ StudentLinkedList createStudentLinkedList()
 bool insertSortedStudentLinkedList(StudentLinkedList* list, Student student)
 {
     if (list == NULL) { return false; }
-    
+    ///*
     StudentNode** head = (StudentNode**)list;
     
     if (*head == NULL) 
@@ -53,6 +53,12 @@ bool insertSortedStudentLinkedList(StudentLinkedList* list, Student student)
         newNode->next = curr;
         prev->next = newNode;
     }
+    //*/
+
+//    StudentNode *newNode = createNode(student);
+//    if (newNode == NULL) { return false; }
+
+
 
     return true;
 }
